@@ -11,8 +11,6 @@ const rl = readline.createInterface({
 
 // TODO: Uncomment the code below to pass the first stage
 const prompt = () => {
-    // `${green}┌─[${cyan}${username}@${hostname}${green}]─[${yellow}${cwd}${green}]\n` +
-    // `└──╼ ${reset}$ `
   rl.question(`┌─[phoenix@PHOENIX]-[${process.cwd().replace(os.homedir(), "~")}]\n` + `└──╼ $ `, (answer) => {
     const parts = answer.trim().match(/(?:[^\s"']+|["'][^"']*["'])+/g) || [];
     const cmd = parts[0];
