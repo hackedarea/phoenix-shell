@@ -23,41 +23,20 @@ const rl = readline.createInterface({
 
 // The whole logic code begins from here
 const prompt = () => {
-    // `${green}┌─[${cyan}${username}@${hostname}${green}]─[${yellow}${cwd}${green}]\n` +
-    // `└──╼ ${reset}$ `
-  rl.question(`┌─[phoenix@PHOENIX]-[${process.cwd().replace(os.homedir(), "~")}]\n` + `└──╼ $ `, (answer) => {
-    const parts = answer.trim().match(/(?:[^\s"']+|["'][^"']*["'])+/g) || [];
-    const cmd = parts[0];
-    const arg = parts.slice(1);
-
-    function parseArgs(args) {
-      const flags = new Set();
-      const positional = [];
-
-      for (const arg of args) {
-        if (arg.startsWith("--")) {
-          flags.add(arg);
-        } else if (arg.startsWith("-")) {
-          for (let i = 1; i < arg.length; i++) {
-            flags.add("-" + arg[i]);
-          }
-        } else {
-          positional.push(arg);
-        }
-      }
-
-      return { flags, positional };
-    }
-
-    function expandHome(p) {
-      if (!p) return p;
-      if (p === "~") return process.env.HOME || process.env.USERPROFILE || p;
-      if (p.startsWith("~/") || p.startsWith("~\\")) {
-        const home = process.env.HOME || process.env.USERPROFILE;
-        return home ? path.join(home, p.slice(2)) : p;
-      }
-      return p;
-    }
+  rl.question(
+    chalk.yellow('┌─[') +
+    chalk.cyan('phoenix') + 
+    chalk.redBright('@') + 
+    chalk.magenta('PHOENIX') + 
+    chalk.yellow(']-[') +
+    chalk.green(process.cwd().replace(os.homedir(), "~")) +
+    chalk.yellow(']\n') +
+    chalk.yellow('└──╼ ') +
+    chalk.blue('$ '),
+    (answer) => {
+      const parts = answer.trim().match(/(?:[^\s"']+|["'][^"']*["'])+/g) || [];
+      const cmd = parts[0];
+      const arg = parts.slice(1);
 
       // exit command
       if (answer.startsWith("exit")) {
