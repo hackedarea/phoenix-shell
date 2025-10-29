@@ -1,0 +1,8 @@
+clear --help
+clear: invalid option -- '-'
+Usage: clear [options]
+
+Options:
+  -T TERM     use this instead of $TERM
+  -V          print curses-version
+  -x          do not try to clear scrollback
