@@ -15,6 +15,9 @@ const cdCommand = require("./commands/cdCommand");
 const exitCommand = require("./commands/exitCommand");
 const echoCommand = require("./commands/echoCommand");
 const pwdCommand = require("./commands/pwdCommand");
+const rmCommand = require('./commands/rmCommand');
+const mkdirCommand = require('./commands/mkdirCommand');
+const baeCommand = require('./commands/baeCommand');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -95,6 +98,23 @@ const prompt = () => {
       // ifconfig command
       else if (cmd == 'ifconfig') {
         ifconfigCommand(arg);
+        prompt();
+      }
+
+      // rm command
+      else if (cmd == 'rm') {
+        rmCommand(arg);
+        prompt();
+      }
+
+      else if (cmd == 'mkdir') {
+        mkdirCommand(arg);
+        prompt();
+      }
+      
+      // bae system package manager wrapper
+      else if (cmd === 'bae') {
+        baeCommand(arg);
         prompt();
       }
 

@@ -1,0 +1,19 @@
+bae - System package manager wrapper
+
+Usage:
+  bae --help                     Show this help
+  bae install <pkg> [...pkgs]    Install system package(s)
+  bae remove <pkg> [...pkgs]     Remove system package(s)
+  bae update                     Update package index (where supported)
+  bae upgrade                    Upgrade installed packages (where supported)
+  bae search <query>             Search packages
+  bae run <binary> [args...]     Execute an installed program
+  bae --sudo <subcmd> [...]      Run subcommand with sudo elevation
+
+Notes:
+  - Automatically detects apt/apt-get, dnf, yum, pacman, zypper, or apk.
+  - Non-interactive flags are used to avoid prompts (e.g., -y / --noconfirm).
+  - If not root, install/remove/update/upgrade auto-elevate using sudo.
+  - Force elevation with --sudo or env BAE_SUDO=1.
+
+
