@@ -16,6 +16,7 @@ const pwdCommand = require("./commands/pwdCommand");
 const rmCommand = require('./commands/rmCommand');
 const mkdirCommand = require('./commands/mkdirCommand');
 const baeCommand = require('./commands/baeCommand');
+const manCommand = require('./commands/manCommand');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -113,6 +114,12 @@ const prompt = () => {
       // bae system package manager wrapper
       else if (cmd === 'bae') {
         baeCommand(arg);
+        prompt();
+      }
+
+      else if (cmd === 'man') {
+        const inp = parts.slice(1).join(" ").trim();
+        manCommand(inp);
         prompt();
       }
 

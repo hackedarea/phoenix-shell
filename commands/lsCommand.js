@@ -29,17 +29,17 @@ function parseArgs(args) {
 
 function formatFileName(name, isDirectory) {
   if (isDirectory) {
-    return chalk.blue(name + "/");
+    return chalk.blueBright(name + "/");
   }
 
   // If filename contains spaces, wrap in single quotes and display in green
   if (name.includes(" ")) {
-    return chalk.green(`'${name}'`);
+    return chalk.greenBright(`'${name}'`);
   }
 
   const ext = path.extname(name).toLowerCase();
   
-  // Zipped/archive files (.deb, .zip, .tar, .gz, .rar, .7z, etc.)
+  // Zipped/archive files
   const archiveExts = ['.deb', '.zip', '.tar', '.gz', '.bz2', '.xz', '.rar', '.7z', '.tar.gz', '.tar.bz2', '.tar.xz'];
   if (archiveExts.some(archiveExt => name.toLowerCase().endsWith(archiveExt))) {
     return chalk.red(name);
@@ -66,7 +66,7 @@ function formatFileName(name, isDirectory) {
   // other files - display in green
   const txtExts = ['','.txt','.pdf','.md','.icon','.old','.license']
   if (txtExts.includes(ext)) {
-    return chalk.green(name);
+    return chalk.greenBright(name);
   }
 
   const progmExts = ['.py','.js','.jsx','html','.css','.tsx','.java','.json']
