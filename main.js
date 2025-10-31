@@ -1,7 +1,5 @@
 const readline = require("readline");
 const os = require("os");
-const fs = require("fs");
-const path = require("path");
 const chalk = require("chalk");
 
 // require commands

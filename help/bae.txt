@@ -17,3 +17,9 @@ Notes:
   - Force elevation with --sudo or env BAE_SUDO=1.
 
 
+Example Usage:
+  - sudo apt update --> bae update
+  - sudo apt upgrade --> bae upgrade
+  - sudo apt install figlet --> bae install figlet
+  - sudo apt remove figlet --> bae remove figlet
+  - sudo figlet "phoenix" --> bae run figlet Phoenix
