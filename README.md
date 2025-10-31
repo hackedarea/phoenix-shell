@@ -27,6 +27,7 @@ It aims to mimic the behavior of common UNIX shells like **bash** or **zsh**, wh
 | `grep [flags] [path]` | Lists directory contents, supports `-n`, `-v`, and `--help`                                                                                             |
 | `ifconfig [flags]`    | Show network interfaces, supports `-a`, and `--help`                                                                                                    |
 | `ls [flags] [path]`   | Lists directory contents, supports `-a`, `-l`, combined flags (`-al`, `-la`), and `--help`                                                              |
+| `man <command>`       | Prints the help file's content of the given command, like - "man ls", "man cat", etc.                                                                   |
 | `mkdir <flag> [path]` | Create directory in any place, supported `-m`,`-p`,`-v`,`-Z`, and `--help`                                                                              |
 | `pwd`                 | Know your Present Working Directory, supported `-L`,`-P`, and `--help`                                                                                  |
 | `rm <flag> [path]`    | Remove the directory, files of any type, supported `f`,`i`,`I`,`-r`,`-d`,`-v`,`--` and `--help`, also support combined flags like `-rf`                 |
