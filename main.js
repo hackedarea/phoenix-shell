@@ -17,6 +17,7 @@ const rmCommand = require('./commands/rmCommand');
 const mkdirCommand = require('./commands/mkdirCommand');
 const baeCommand = require('./commands/baeCommand');
 const manCommand = require('./commands/manCommand');
+const chmodCommand = require("./commands/chmodCommand");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -117,9 +118,17 @@ const prompt = () => {
         prompt();
       }
 
+      // man Command
       else if (cmd === 'man') {
         const inp = parts.slice(1).join(" ").trim();
         manCommand(inp);
+        prompt();
+      }
+
+      // chmod Command
+      else if (cmd === 'chmod') {
+        const argument = parts.slice(1).join(" ").trim();
+        chmodCommand(argument)
         prompt();
       }
 
