@@ -22,7 +22,7 @@ It aims to mimic the behavior of common UNIX shells like **bash** or **zsh**, wh
 | `cat [flags] <file>`  | Prints file conten, supports `-n`, `-b`, `-E`, `-T`, `-s`, `-A`, supports multiple files and absolute/relative paths                                    |
 | `cd [path]`           | Changes the current working directory, supports `..`, `-`, `~`, and absolute paths                                                                      |
 | `clear`               | Clears the terminal screen (ANSI-based)                                                                                                                 |
-| `chmod [flags] [mode] [file]`         | change the permissions of the file for root user, group and other user, support `-c`, `-f`, `-v`, `-R`, `--help` and `--version`. accepts all modes like - `rwx, 777/444/756/ and all, u,g,o & +,-,=` |
+| `chmod [flags] [mode] [file]`         | change the permissions of the file for root user, group and other user, support `-c`, `-f`, `-v`, `-R`, `--help` and `--version`. Accepts all modes like - `rwx, 777/444/756/ and all, u,g,o & +,-,=` |
 | `echo <text>`         | Prints text to stdout                                                                                                                                   |
 | `exit <exit code>`    | Exit the terminal (process will exit with the given code, default is 0)                                                                                 |
 | `grep [flags] [path]` | Lists directory contents, supports `-n`, `-v`, and `--help`                                                                                             |
