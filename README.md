@@ -1,38 +1,47 @@
-# 🐚 Phoenix Shell — Custom Node.js CLI Terminal
+# 🐚 Phoenix Shell - Rise of the Node-Powered Terminal 🔥  
+_A minimal yet mighty shell that blends UNIX wisdom with JavaScript flexibility._
+
+![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-green)
+![Platform](https://img.shields.io/badge/platform-cross--platform-blue)
+![License](https://img.shields.io/badge/license-MIT-yellow)
+![Status](https://img.shields.io/badge/status-active-success)
+
+---
 
 **Phoenix Shell** is a lightweight, interactive command-line shell built entirely in **Node.js**.  
-It aims to mimic the behavior of common UNIX shells like **bash** or **zsh**, while exploring how real shells parse, interpret, and execute commands internally.
+It mimics the behavior of common UNIX shells like **bash** or **zsh**, while revealing how real shells parse, interpret, and execute commands internally.
 
 ---
 
 ## 🚀 Features Implemented
 
 ### ✅ Core Shell Functionality
-
 - Interactive prompt (`$`)
 - Command parsing (supports multiple args, flags, and quoted strings)
 - Error handling for unknown commands
 - Built-in environment variable usage (`$PATH`, `$HOME`, etc.)
 
+---
+
 ### ✅ Built-in Commands
 
-| Command               | Description                                                                                                                                             |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bae <command>`       | My own Package Manager (kidding, using the system's default package manager, but named as `bae`), go through with help file `--help` or just type `bae` |
-| `cat [flags] <file>`  | Prints file conten, supports `-n`, `-b`, `-E`, `-T`, `-s`, `-A`, supports multiple files and absolute/relative paths                                    |
-| `cd [path]`           | Changes the current working directory, supports `..`, `-`, `~`, and absolute paths                                                                      |
-| `clear`               | Clears the terminal screen (ANSI-based)                                                                                                                 |
-| `chmod [flags] [mode] [file]`         | change the permissions of the file for root user, group and other user, support `-c`, `-f`, `-v`, `-R`, `--help` and `--version`. Accepts all modes like - `rwx, 777/444/756/ and all, u,g,o & +,-,=` |
-| `echo <text>`         | Prints text to stdout                                                                                                                                   |
-| `exit <exit code>`    | Exit the terminal (process will exit with the given code, default is 0)                                                                                 |
-| `grep [flags] [path]` | Lists directory contents, supports `-n`, `-v`, and `--help`                                                                                             |
-| `ifconfig [flags]`    | Show network interfaces, supports `-a`, and `--help`                                                                                                    |
-| `ls [flags] [path]`   | Lists directory contents, supports `-a`, `-l`, combined flags (`-al`, `-la`), and `--help`                                                              |
-| `man <command>`       | Prints the help file's content of the given command, like - "man ls", "man cat", etc.                                                                   |
-| `mkdir <flag> [path]` | Create directory in any place, supported `-m`,`-p`,`-v`,`-Z`, and `--help`                                                                              |
-| `pwd`                 | Know your Present Working Directory, supported `-L`,`-P`, and `--help`                                                                                  |
-| `rm <flag> [path]`    | Remove the directory, files of any type, supported `f`,`i`,`I`,`-r`,`-d`,`-v`,`--` and `--help`, also support combined flags like `-rf`                 |
-| `type <command>`      | Identifies whether a command is built-in or an external executable (searched via `$PATH`)                                                               |
+| Command | Description |
+|----------|-------------|
+| `bae <command>` | 💖 My own “package manager soulmate” (actually uses the system’s default package manager, but named `bae`). Explore it using `--help` or just type `bae`. |
+| `cat [flags] <file>` | Prints file content, supports `-n`, `-b`, `-E`, `-T`, `-s`, `-A`. Handles multiple files and both absolute/relative paths. |
+| `cd [path]` | Changes the current working directory, supports `..`, `-`, `~`, and absolute paths. |
+| `clear` | Clears the terminal screen (ANSI-based). |
+| `chmod [flags] [mode] [file]` | Changes the permissions of files for root, group, and other users. Supports `-c`, `-f`, `-v`, `-R`, `--help`, and `--version`. Accepts all modes like `rwx`, `777`, `444`, `u/g/o +,-,=` etc. |
+| `echo <text>` | Prints text to stdout. |
+| `exit <exit code>` | Exits the terminal (defaults to code `0`). |
+| `grep [flags] [path]` | Searches content with support for `-n`, `-v`, and `--help`. |
+| `ifconfig [flags]` | Shows network interfaces, supports `-a` and `--help`. |
+| `ls [flags] [path]` | Lists directory contents, supports `-a`, `-l`, combined flags (`-al`, `-la`), and `--help`. |
+| `man <command>` | Prints the help file content of the given command (e.g., `man ls`, `man cat`). |
+| `mkdir <flags> [path]` | Creates directories, supports `-m`, `-p`, `-v`, `-Z`, and `--help`. |
+| `pwd` | Prints the current working directory. Supports `-L`, `-P`, and `--help`. |
+| `rm <flags> [path]` | Removes files or directories. Supports `-f`, `-i`, `-I`, `-r`, `-d`, `-v`, `--`, and combined flags (`-rf`). |
+| `type <command>` | Identifies whether a command is built-in or external (searched via `$PATH`). |
 
 ---
 
@@ -40,59 +49,56 @@ It aims to mimic the behavior of common UNIX shells like **bash** or **zsh**, wh
 
 - **Language:** Node.js (JavaScript)
 - **Core Modules Used:**
-  - `fs` → File system access
-  - `path` → Cross-platform path handling
-  - `readline` → Interactive input
-  - `process` → Environment and working directory handling
+  - `fs` → File system access  
+  - `path` → Cross-platform path handling  
+  - `readline` → Interactive input  
+  - `process` → Environment and working directory management  
+
+---
 
 ### 🧩 Path Resolution
-
-The shell includes a smart path resolver:
-
-- Own Package Manager (`bae`)
-- Handles relative (`./`, `../`)
+Phoenix Shell comes with an intelligent path resolver that:
 - Expands tilde (`~`)
+- Handles relative (`./`, `../`)
 - Resolves absolute paths (`/usr/bin`, `/help/file.txt`)
 - Normalizes redundant segments
+- Integrates a custom alias: `bae` (default package manager shortcut)
+
+---
 
 ### 🧩 Command Parser
-
-Robust parser that:
-
-- Splits arguments safely (supports `"quoted strings"` and multiple spaces)
-- Distinguishes between flags, arguments, and paths
-- Ensures cross-platform compatibility using `path.delimiter` and `path.join`
+The internal parser ensures reliable cross-platform execution:
+- Handles `"quoted strings"` and multi-space inputs
+- Splits and resolves arguments, flags, and paths safely
+- Uses `path.delimiter` and `path.join` for clean path management
 
 ---
 
 ## 🧠 Learning Goals
-
-This project is designed to:
-
+Phoenix Shell is built as a deep-dive project to:
 - Understand **how real shells interpret and execute commands**
 - Explore **system-level file operations** in Node.js
 - Learn **I/O handling**, **process management**, and **environment variables**
-- Rebuild small portions of a _UNIX-like command ecosystem_ from scratch
+- Recreate essential parts of a UNIX-like command ecosystem in pure JavaScript
 
 ---
 
 ## 🧪 Upcoming Features
 
-- [ ] Add `touch`, `chmod`, etc. commands
-- [ ] Implement piped commands (e.g., `cat file | grep text`)
-- [ ] Add command history navigation
-- [ ] Introduce shell variables (`x=5`, `$x`)
-- [ ] Support asynchronous execution (`&`)
-- [ ] Stores history of commands
+- [ ] Add more built-in commands like `touch`, `chmod`, etc.  
+- [ ] Implement piped commands (`cat file | grep text`)  
+- [ ] Add command history navigation  
+- [ ] Introduce shell variables (`x=5`, `$x`)  
+- [ ] Support asynchronous execution (`&`)  
+- [ ] Store user command history persistently  
 
 ---
 
 ## 💡 Usage
 
 ### Run in interactive mode:
-
 ```bash
 git clone https://github.com/hackedarea/phoenix-terminal.git
-npm i
+cd phoenix-terminal
+npm install
 node main.js
-```
