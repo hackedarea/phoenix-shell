@@ -1,0 +1,69 @@
+CP(1)                              Phoenix Shell Manual                             CP(1)
+
+NAME
+    cp - copy files and directories
+
+SYNOPSIS
+    cp [OPTION]... SOURCE... DEST
+
+DESCRIPTION
+    Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+    By default, cp copies files. When copying multiple sources, the destination
+    must be an existing directory. If DEST does not exist, cp will create it if
+    the -r (--recursive) flag is used when copying directories.
+
+OPTIONS
+    -r, --recursive
+        Copy directories recursively, including their contents and subdirectories.
+
+    -v, --verbose
+        Explain what is being done. Print each source and destination pair
+        as they are copied.
+
+    -n, --no-clobber
+        Do not overwrite an existing file. If the destination file exists,
+        it will be skipped silently (or logged in verbose mode).
+
+    -p, --preserve
+        Preserve file attributes such as mode (permissions) and timestamps.
+        Ownership preservation may be limited depending on user permissions.
+
+    --help
+        Display this help and exit.
+
+    --version
+        Output version information and exit.
+
+BEHAVIOR
+    • If multiple SOURCE files are specified, DEST must be an existing directory.
+    • If copying a directory, -r or --recursive must be provided.
+    • Hidden files are included when using recursive mode.
+    • Destination paths are automatically resolved relative to the current working directory.
+    • The ~ (tilde) symbol expands to the user’s home directory.
+
+EXAMPLES
+    cp file1.txt file2.txt
+        Copy file1.txt to file2.txt (overwriting if necessary).
+
+    cp -v file.txt newfile.txt
+        Copy file.txt to newfile.txt, printing the operation.
+
+    cp -r mydir newdir
+        Recursively copy all contents of mydir into newdir.
+
+    cp -n file.txt existing.txt
+        Copy only if existing.txt does not already exist.
+
+    cp -rp project backup/
+        Copy a directory recursively while preserving timestamps and permissions.
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com
