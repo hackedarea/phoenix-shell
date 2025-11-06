@@ -7,3 +7,13 @@ Options:
   -v, --verbose     explain what is being done
   --help            display this help and exit
   --version         output version information and exit
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

@@ -69,3 +69,13 @@ g - grap, r - refer, v - vgrind
 
 Mandatory or optional arguments to long options are also mandatory or optional
 for any corresponding short options.
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

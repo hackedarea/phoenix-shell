@@ -23,3 +23,13 @@ Example Usage:
   - sudo apt install figlet --> bae install figlet
   - sudo apt remove figlet --> bae remove figlet
   - sudo figlet "phoenix" --> bae run figlet Phoenix
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

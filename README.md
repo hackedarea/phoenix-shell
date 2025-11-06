@@ -30,8 +30,9 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 | `bae <command>` | 💖 My own “package manager soulmate” (actually uses the system’s default package manager, but named `bae`). Explore it using `--help` or just type `bae`. |
 | `cat [flags] <file>` | Prints file content, supports `-n`, `-b`, `-E`, `-T`, `-s`, `-A`. Handles multiple files and both absolute/relative paths. |
 | `cd [path]` | Changes the current working directory, supports `..`, `-`, `~`, and absolute paths. |
-| `clear` | Clears the terminal screen (ANSI-based). |
 | `chmod [flags] [mode] [file]` | Changes the permissions of files for root, group, and other users. Supports `-c`, `-f`, `-v`, `-R`, `--help`, and `--version`. Accepts all modes like `rwx`, `777`, `444`, `u/g/o +,-,=` etc. |
+| `clear` | Clears the terminal screen (ANSI-based). |
+| `cp` | Copy the content of the file, supported `-r`,`-v`,`-n`,`-p`,`--version` and `--help`. |
 | `echo <text>` | Prints text to stdout. |
 | `exit <exit code>` | Exits the terminal (defaults to code `0`). |
 | `grep [flags] [path]` | Searches content with support for `-n`, `-v`, and `--help`. |

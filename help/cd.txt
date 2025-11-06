@@ -32,3 +32,13 @@ cd: cd [-L|[-P [-e]] [-@]] [dir]
     Exit Status:
     Returns 0 if the directory is changed, and if $PWD is set successfully when
     -P is used; non-zero otherwise.
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

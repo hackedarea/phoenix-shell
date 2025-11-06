@@ -16,3 +16,13 @@ With --reference, change the mode of each FILE to that of RFILE.
       --version     output version information and exit
 
 Each MODE is of the form '[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+'.
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

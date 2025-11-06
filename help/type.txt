@@ -22,5 +22,12 @@ type: type [-afptP] name [name ...]
     Arguments:
       NAME	Command name to be interpreted.
     
-    Exit Status:
-    Returns success if all of the NAMEs are found; fails if any are not found.
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

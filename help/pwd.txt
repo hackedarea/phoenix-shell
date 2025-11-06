@@ -7,7 +7,13 @@ pwd: pwd [-LP]
       -P	print the physical directory, without any symbolic links
     
     By default, `pwd' behaves as if `-L' were specified.
-    
-    Exit Status:
-    Returns 0 unless an invalid option is given or the current directory
-    cannot be read.
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

@@ -31,3 +31,13 @@ Usage:
     ax25 (AMPR AX.25) netrom (AMPR NET/ROM) rose (AMPR ROSE) 
     ipx (Novell IPX) ddp (Appletalk DDP) ec (Econet) 
     ash (Ash) x25 (CCITT X.25)
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

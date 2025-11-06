@@ -19,6 +19,7 @@ const baeCommand = require('./commands/baeCommand');
 const manCommand = require('./commands/manCommand');
 const chmodCommand = require("./commands/chmodCommand");
 const touchCommand = require("./commands/touchCommand");
+const cpCommand = require("./commands/cpCommand");
 
 const rl = readline.createInterface({
   input: process.stdin,
