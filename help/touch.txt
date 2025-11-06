@@ -1,0 +1,9 @@
+Usage: touch [OPTION]... FILE...
+Update the access and modification times of each FILE to the current time.
+A FILE argument that does not exist is created empty.
+
+Options:
+  -f, --force       ignore nonexistent files and arguments, never prompt
+  -v, --verbose     explain what is being done
+  --help            display this help and exit
+  --version         output version information and exit

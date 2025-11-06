@@ -18,6 +18,7 @@ const mkdirCommand = require('./commands/mkdirCommand');
 const baeCommand = require('./commands/baeCommand');
 const manCommand = require('./commands/manCommand');
 const chmodCommand = require("./commands/chmodCommand");
+const touchCommand = require("./commands/touchCommand");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -28,9 +29,9 @@ const rl = readline.createInterface({
 const prompt = () => {
   rl.question(
     chalk.yellow('┌─[') +
-    chalk.cyan('phoenix') + 
-    chalk.redBright('@') + 
-    chalk.magenta('PHOENIX') + 
+    chalk.cyan('phoenix') +
+    chalk.redBright('@') +
+    chalk.magenta('PHOENIX') +
     chalk.yellow(']-[') +
     chalk.green(process.cwd().replace(os.homedir(), "~")) +
     chalk.yellow(']\n') +
@@ -111,7 +112,7 @@ const prompt = () => {
         mkdirCommand(arg);
         prompt();
       }
-      
+
       // bae system package manager wrapper
       else if (cmd === 'bae') {
         baeCommand(arg);
@@ -129,6 +130,18 @@ const prompt = () => {
       else if (cmd === 'chmod') {
         const argument = parts.slice(1).join(" ").trim();
         chmodCommand(argument)
+        prompt();
+      }
+
+      // touch command
+      else if (cmd === 'touch') {
+        touchCommand(arg);
+        prompt();
+      }
+        
+      // cp command
+      else if (cmd === 'cp') {
+        cpCommand(arg);
         prompt();
       }
 
