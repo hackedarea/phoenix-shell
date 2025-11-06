@@ -42,7 +42,7 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 | `mkdir <flags> [path]` | Creates directories, supports `-m`, `-p`, `-v`, `-Z`, and `--help`. |
 | `pwd` | Prints the current working directory. Supports `-L`, `-P`, and `--help`. |
 | `rm <flags> [path]` | Removes files or directories. Supports `-f`, `-i`, `-I`, `-r`, `-d`, `-v`, `--`, and combined flags (`-rf`). |
-| `touch <flags> [File name]` | Generate a file with a default permission `u=7`,`g=5`,`o=5` (`755`) if it does not exist in the given path (if not given then generated in current directory). |
+| `touch <flags> [File]` | Generate a file with a default permission `u=7`,`g=5`,`o=5` (`755`) if it does not exist in the given path (if not given then generated in current directory). |
 | `type <command>` | Identifies whether a command is built-in or external (searched via `$PATH`). |
 
 ---
