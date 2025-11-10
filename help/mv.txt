@@ -1,0 +1,68 @@
+MV(1)                              Phoenix Shell Manual                             MV(1)
+
+NAME
+    mv - move (rename) files
+
+SYNOPSIS
+    mv [OPTION]... SOURCE... DESTINATION
+
+DESCRIPTION
+    Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+    If more than one SOURCE is given, the final argument must be an existing directory.
+
+OPTIONS
+    -f, --force
+        Do not prompt before overwriting an existing file.
+
+    -i, --interactive
+        Prompt before overwriting. The user is asked for confirmation.
+
+    -n, --no-clobber
+        Do not overwrite existing files. When specified, -f and -i are ignored.
+
+    -u, --update
+        Move only when the SOURCE file is newer than the destination file,
+        or when the destination file is missing.
+
+    -v, --verbose
+        Explain what is being done. Print the source and destination paths
+        for each move operation.
+
+    --help
+        Display this help and exit.
+
+    --version
+        Output version information and exit.
+
+BEHAVIOR
+    • If DEST exists and is a directory, each SOURCE is moved into that directory.
+    • If DEST exists and is a file, it may be overwritten depending on options.
+    • If DEST is on another filesystem, mv copies the file and removes the source.
+    • The ~ symbol expands to the current user’s home directory.
+    • If both -f and -i are given, the last option specified takes precedence.
+
+EXAMPLES
+    mv file1.txt file2.txt
+        Rename file1.txt to file2.txt.
+
+    mv -v file.txt /home/user/backup/
+        Move file.txt into the /home/user/backup/ directory.
+
+    mv -n report.txt existing.txt
+        Skip overwriting an existing file.
+
+    mv -i data.txt old_data.txt
+        Prompt before overwriting old_data.txt.
+
+    mv -u *.log /var/log/archive/
+        Move only newer log files.
+
+EXIT STATUS
+    0   if all files were successfully moved
+    >0  if an error occurred
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com

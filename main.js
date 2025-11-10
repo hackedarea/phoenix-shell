@@ -139,10 +139,16 @@ const prompt = () => {
         touchCommand(arg);
         prompt();
       }
-        
+
       // cp command
       else if (cmd === 'cp') {
         cpCommand(arg);
+        prompt();
+      }
+        
+      // mv command
+      else if (cmd === 'mv') {
+        mvCommand(arg);
         prompt();
       }
 
