@@ -56,6 +56,9 @@ EXAMPLES
 
     mv -u *.log /var/log/archive/
         Move only newer log files.
+    
+    mv -f protected.txt newfile.txt
+        Force move without prompting for confirmation
 
 EXIT STATUS
     0   if all files were successfully moved
