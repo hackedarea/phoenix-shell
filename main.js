@@ -20,6 +20,7 @@ const manCommand = require('./commands/manCommand');
 const chmodCommand = require("./commands/chmodCommand");
 const touchCommand = require("./commands/touchCommand");
 const cpCommand = require("./commands/cpCommand");
+const historyCommand = require("./commands/historyCommand");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -43,9 +44,22 @@ const prompt = () => {
       const cmd = parts[0];
       const arg = parts.slice(1);
 
+      // record to history
+      try {
+        historyCommand.add(answer);
+      } catch (err) {
+        // ignore history errors to avoid breaking the shell
+      }
+
       // exit command
       if (answer.startsWith("exit")) {
         exitCommand(answer);
+      }
+
+      // history command
+      else if (cmd == "history") {
+        historyCommand();
+        prompt();
       }
 
       // echo command
@@ -145,7 +159,7 @@ const prompt = () => {
         cpCommand(arg);
         prompt();
       }
-        
+
       // mv command
       else if (cmd === 'mv') {
         mvCommand(arg);
