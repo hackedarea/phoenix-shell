@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-// History file stored in the user's home directory
-const HISTORY_FILE = path.join(os.homedir(), '.phoenix_history');
+// History file stored in the phoenix-shell directory
+const HISTORY_FILE = path.join(__dirname, '..', '.phoenix_history');
 
 // Ensure history file exists
 try {
