@@ -40,137 +40,153 @@ const prompt = () => {
     chalk.yellow('└──╼ ') +
     chalk.blue('$ '),
     (answer) => {
-      const parts = answer.trim().match(/(?:[^\s"']+|["'][^"']*["'])+/g) || [];
-      const cmd = parts[0];
-      const arg = parts.slice(1);
-
-      // record to history
       try {
         historyCommand.add(answer);
       } catch (err) {
         // ignore history errors to avoid breaking the shell
       }
 
-      // exit command
-      if (answer.startsWith("exit")) {
-        exitCommand(answer);
-      }
+      // Split by semicolon to handle multiple commands
+      const commands = answer.split(';').map(cmd => cmd.trim()).filter(cmd => cmd.length > 0);
+      // Execute commands 1 by 1
+      let commandIndex = 0;
 
-      // history command
-      else if (cmd == "history") {
-        historyCommand();
-        prompt();
-      }
+      const executeNextCommand = () => {
+        if (commandIndex >= commands.length) {
+          prompt();
+          return;
+        }
 
-      // echo command
-      else if (answer.substring(0, 4) == "echo") {
-        echoCommand(answer);
-        prompt();
-      }
+        const currentCommand = commands[commandIndex];
+        commandIndex++;
 
-      // type command
-      else if (cmd === "type") {
-        typeCommand(arg);
-        prompt();
-      }
+        const parts = currentCommand.match(/(?:[^\s"']+|["'][^"']*["'])+/g) || [];
+        const cmd = parts[0];
+        const arg = parts.slice(1);
 
-      // cat command
-      else if (cmd == 'cat') {
-        catCommand(arg);
-        prompt();
-      }
+        // exit command
+        if (currentCommand.startsWith("exit")) {
+          exitCommand(currentCommand);
+        }
 
-      // ls command
-      else if (cmd === "ls") {
-        lsCommand(parts.slice(1));
-        prompt();
-      }
+        // history command
+        else if (cmd == "history") {
+          historyCommand();
+          executeNextCommand();
+        }
 
-      // clear command
-      else if (cmd == "clear" || cmd == "cls") {
-        clearCommand();
-        prompt();
-      }
+        // echo command
+        else if (currentCommand.substring(0, 4) == "echo") {
+          echoCommand(currentCommand);
+          executeNextCommand();
+        }
 
-      // pwd command
-      else if (cmd == "pwd") {
-        pwdCommand(arg);
-        prompt();
-      }
+        // type command
+        else if (cmd === "type") {
+          typeCommand(arg);
+          executeNextCommand();
+        }
 
-      // cd command
-      else if (cmd == "cd") {
-        const arg = parts.slice(1).join(" ").trim();
-        cdCommand(arg);
-        prompt();
-      }
+        // cat command
+        else if (cmd == 'cat') {
+          catCommand(arg);
+          executeNextCommand();
+        }
 
-      // grep command
-      else if (cmd == "grep") {
-        grepCommand(arg);
-        prompt();
-      }
+        // ls command
+        else if (cmd === "ls") {
+          lsCommand(parts.slice(1));
+          executeNextCommand();
+        }
 
-      // ifconfig command
-      else if (cmd == 'ifconfig') {
-        ifconfigCommand(arg);
-        prompt();
-      }
+        // clear command
+        else if (cmd == "clear" || cmd == "cls") {
+          clearCommand();
+          executeNextCommand();
+        }
 
-      // rm command
-      else if (cmd == 'rm') {
-        rmCommand(arg);
-        prompt();
-      }
+        // pwd command
+        else if (cmd == "pwd") {
+          pwdCommand(arg);
+          executeNextCommand();
+        }
 
-      else if (cmd == 'mkdir') {
-        mkdirCommand(arg);
-        prompt();
-      }
+        // cd command
+        else if (cmd == "cd") {
+          const cdArg = parts.slice(1).join(" ").trim();
+          cdCommand(cdArg);
+          executeNextCommand();
+        }
 
-      // bae system package manager wrapper
-      else if (cmd === 'bae') {
-        baeCommand(arg);
-        prompt();
-      }
+        // grep command
+        else if (cmd == "grep") {
+          grepCommand(arg);
+          executeNextCommand();
+        }
 
-      // man Command
-      else if (cmd === 'man') {
-        const inp = parts.slice(1).join(" ").trim();
-        manCommand(inp);
-        prompt();
-      }
+        // ifconfig command
+        else if (cmd == 'ifconfig') {
+          ifconfigCommand(arg);
+          executeNextCommand();
+        }
 
-      // chmod Command
-      else if (cmd === 'chmod') {
-        const argument = parts.slice(1).join(" ").trim();
-        chmodCommand(argument)
-        prompt();
-      }
+        // rm command
+        else if (cmd == 'rm') {
+          rmCommand(arg);
+          executeNextCommand();
+        }
 
-      // touch command
-      else if (cmd === 'touch') {
-        touchCommand(arg);
-        prompt();
-      }
+        else if (cmd == 'mkdir') {
+          mkdirCommand(arg);
+          executeNextCommand();
+        }
 
-      // cp command
-      else if (cmd === 'cp') {
-        cpCommand(arg);
-        prompt();
-      }
+        // bae command (system package manager wrapper)
+        else if (cmd === 'bae') {
+          baeCommand(arg);
+          executeNextCommand();
+        }
 
-      // mv command
-      else if (cmd === 'mv') {
-        mvCommand(arg);
-        prompt();
-      }
+        // man Command
+        else if (cmd === 'man') {
+          const inp = parts.slice(1).join(" ").trim();
+          manCommand(inp);
+          executeNextCommand();
+        }
 
-      // if command not found
-      else {
-        console.log(`${answer}: command not found`);
-        prompt();
-      }
+        // chmod Command
+        else if (cmd === 'chmod') {
+          const argument = parts.slice(1).join(" ").trim();
+          chmodCommand(argument);
+          executeNextCommand();
+        }
+
+        // touch command
+        else if (cmd === 'touch') {
+          touchCommand(arg);
+          executeNextCommand();
+        }
+
+        // cp command
+        else if (cmd === 'cp') {
+          cpCommand(arg);
+          executeNextCommand();
+        }
+
+        // mv command
+        else if (cmd === 'mv') {
+          mvCommand(arg);
+          executeNextCommand();
+        }
+
+        // if command not found
+        else {
+          console.log(`${cmd || currentCommand}: command not found`);
+          executeNextCommand();
+        }
+      };
+
+      executeNextCommand();
     }
   );
 };
