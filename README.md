@@ -112,7 +112,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/coderujwal3"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/67452930?v=4?s=60" width="60px;" alt="coderujwal3"/><br /><sub><b>Ujwal Singh</b></sub></a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/coderujwal3"><img src="https://avatars.githubusercontent.com/u/67452930?v=4?s=60" width="60px;" alt="coderujwal3"/><br /><sub><b>Ujwal Singh</b></sub></a></td>
     </tr>
   </tbody>
 </table>
