@@ -20,6 +20,7 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 - Command parsing (supports multiple args, flags, and quoted strings)
 - Error handling for unknown commands
 - Built-in environment variable usage (`$PATH`, `$HOME`, etc.)
+- Introduced shell variables (`x=5`, `$x`)
 
 ---
 
@@ -37,6 +38,7 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 | `exit <exit code>` | Exits the terminal (defaults to code `0`). |
 | `grep [flags] [path]` | Searches content with support for `-n`, `-v`, and `--help`. |
 | `ifconfig [flags]` | Shows network interfaces, supports `-a` and `--help`. |
+| `ifconfig [flags]` | Shows wireless network interfaces (only works for linux, and for windows it displays manually added network data), supports `-a` and `--help`. |
 | `ls [flags] [path]` | Lists directory contents, supports `-a`, `-l`, combined flags (`-al`, `-la`), and `--help`. |
 | `man <command>` | Prints the help file content of the given command (e.g., `man ls`, `man cat`). |
 | `mkdir <flags> [path]` | Creates directories, supports `-m`, `-p`, `-v`, `-Z`, and `--help`. |
@@ -91,10 +93,7 @@ Phoenix Shell is built as a deep-dive project to:
 - [ ] Add more built-in commands like `systemctl`, `iwconfig`, etc.
 - [ ] Implement piped commands (`cat file | grep text`)
 - [ ] Some more advanced commands (`cat>file_name`)
-- [ ] Add command history navigation
-- [ ] Introduce shell variables (`x=5`, `$x`)
 - [ ] Support asynchronous execution (`&`)
-- [ ] Store user command history persistently
 
 ---
 
