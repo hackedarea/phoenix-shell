@@ -21,6 +21,7 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 - Error handling for unknown commands
 - Built-in environment variable usage (`$PATH`, `$HOME`, etc.)
 - Introduced shell variables (`x=5`, `$x`)
+- Commands to display network & machine interfaces (`ifconfig`,`iwconfig`)
 
 ---
 
@@ -38,7 +39,7 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 | `exit <exit code>` | Exits the terminal (defaults to code `0`). |
 | `grep [flags] [path]` | Searches content with support for `-n`, `-v`, and `--help`. |
 | `ifconfig [flags]` | Shows network interfaces, supports `-a` and `--help`. |
-| `ifconfig [flags]` | Shows wireless network interfaces (only works for linux, and for windows it displays manually added network data), supports `-a` and `--help`. |
+| `iwconfig` | Shows wireless network interfaces (only works for linux, and for windows it displays manually added network data), support parameters `essid`,`mode`,`channel`,`freq`,`key`,`sens` and `--help`. |
 | `ls [flags] [path]` | Lists directory contents, supports `-a`, `-l`, combined flags (`-al`, `-la`), and `--help`. |
 | `man <command>` | Prints the help file content of the given command (e.g., `man ls`, `man cat`). |
 | `mkdir <flags> [path]` | Creates directories, supports `-m`, `-p`, `-v`, `-Z`, and `--help`. |
@@ -90,7 +91,7 @@ Phoenix Shell is built as a deep-dive project to:
 
 ## 🧪 Upcoming Features
 
-- [ ] Add more built-in commands like `systemctl`, `iwconfig`, etc.
+- [ ] Add more built-in commands like `chdir`, `alias`, etc.
 - [ ] Implement piped commands (`cat file | grep text`)
 - [ ] Some more advanced commands (`cat>file_name`)
 - [ ] Support asynchronous execution (`&`)
@@ -115,9 +116,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
   </tbody>
 </table>
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 
 ---
