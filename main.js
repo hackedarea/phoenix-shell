@@ -21,6 +21,7 @@ const chmodCommand = require("./commands/chmodCommand");
 const touchCommand = require("./commands/touchCommand");
 const cpCommand = require("./commands/cpCommand");
 const historyCommand = require("./commands/historyCommand");
+const iwconfigCommand = require('./commands/iwconfigCommand');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -218,6 +219,12 @@ const prompt = () => {
         // mv command
         else if (cmd === 'mv') {
           mvCommand(arg);
+          executeNextCommand();
+        }
+
+        // iwconfig command
+        else if (cmd === 'iwconfig') {
+          iwconfigCommand(arg);
           executeNextCommand();
         }
 
