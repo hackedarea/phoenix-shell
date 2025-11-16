@@ -1,6 +1,7 @@
 const os = require("os");
 const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require('child_process');
 
 // Simulated wireless interface database
 const wirelessInterfaceDB = {
@@ -185,39 +186,51 @@ function setSensitivity(ifaceName, sens) {
 }
 
 function showHelp() {
-    const helpText = `
-Usage: iwconfig [interface] [parameter value]
-
-Display or set wireless interface parameters.
-
-Examples:
-  iwconfig                           - Show all wireless interfaces
-  iwconfig wlan0                     - Show wlan0 configuration
-  iwconfig wlan0 essid "MyNetwork"   - Set ESSID
-  iwconfig wlan0 mode Managed        - Set mode (Managed, Ad-Hoc, Monitor, Master)
-  iwconfig wlan0 channel 6           - Set channel (1-165)
-  iwconfig wlan0 freq 2.437G         - Set frequency
-  iwconfig wlan0 key s:mypassword    - Set WEP encryption (deprecated)
-  iwconfig wlan0 key off             - Disable encryption
-  iwconfig wlan0 sens -80            - Set sensitivity
-  iwconfig --help                    - Show this help
-
-Parameters:
-  essid       - Network name (requires quotes if contains spaces)
-  mode        - Operating mode (Managed, Ad-Hoc, Monitor, Master)
-  channel     - Wireless channel (1-165)
-  freq        - Frequency in GHz (e.g., 2.437G, 5.180G)
-  key         - WEP encryption key (s:password or hex string)
-  sens        - Receiver sensitivity threshold (-100 to 0 dBm)
-
-Note: This is a Node.js simulation of the Linux iwconfig command.
-For actual wireless configuration, use native OS tools.
-`;
-    console.log(helpText);
+    const helpPath = path.join(__dirname, "..", "help", "iwconfig.txt");
+    try {
+        if (fs.existsSync(helpPath)) {
+            const content = fs.readFileSync(helpPath, "utf8");
+            console.log(content);
+        } else {
+            console.log(`iwconfig: help file not found: ${helpPath}`);
+        }
+    } catch (err) {
+        console.log(`iwconfig: failed to read help file: ${err.message}`);
+    }
 }
 
 function iwconfigCommand(args) {
     args = Array.isArray(args) ? args : [];
+
+    // If not running on Linux, show the simulated data and a clear notice.
+    if (process.platform !== 'linux') {
+        console.log("iwconfig: NOTE: displayed data is manually added sample output. 'iwconfig' works only on Linux.");
+        showAllInterfaces();
+        return;
+    }
+
+    // Try to run system iwconfig when available. If it exists, forward its output.
+    const trySystemIwconfig = (argsArray) => {
+        try {
+            const res = spawnSync('iwconfig', argsArray, { encoding: 'utf8' });
+            if (res.error && res.error.code === 'ENOENT') {
+                return false; // iwconfig not installed
+            }
+            if (res.stdout) process.stdout.write(res.stdout);
+            if (res.stderr) process.stderr.write(res.stderr);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    };
+
+    if (trySystemIwconfig(args)) {
+        return;
+    }
+
+    // If we reach here, either iwconfig is not installed or executing it failed.
+    // Fall back to simulated behavior but notify the user.
+    console.log('iwconfig: system iwconfig not found or failed — using simulated output');
 
     // Handle help
     if (args.length === 0 || args[0] === "--help" || args[0] === "-h") {

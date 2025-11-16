@@ -1,0 +1,36 @@
+Usage: iwconfig [interface] [parameter value]
+
+Display or set wireless interface parameters.
+
+Examples:
+  iwconfig                           - Show all wireless interfaces
+  iwconfig wlan0                     - Show wlan0 configuration
+  iwconfig wlan0 essid "MyNetwork"   - Set ESSID
+  iwconfig wlan0 mode Managed        - Set mode (Managed, Ad-Hoc, Monitor, Master)
+  iwconfig wlan0 channel 6           - Set channel (1-165)
+  iwconfig wlan0 freq 2.437G         - Set frequency
+  iwconfig wlan0 key s:mypassword    - Set WEP encryption (deprecated)
+  iwconfig wlan0 key off             - Disable encryption
+  iwconfig wlan0 sens -80            - Set sensitivity
+  iwconfig --help                    - Show this help
+
+Parameters:
+  essid       - Network name (requires quotes if contains spaces)
+  mode        - Operating mode (Managed, Ad-Hoc, Monitor, Master)
+  channel     - Wireless channel (1-165)
+  freq        - Frequency in GHz (e.g., 2.437G, 5.180G)
+  key         - WEP encryption key (s:password or hex string)
+  sens        - Receiver sensitivity threshold (-100 to 0 dBm)
+
+EXIT STATUS
+    0   if all files were copied successfully
+    >0  if an error occurred during one or more operations
+
+AUTHOR
+    Written for Phoenix Shell by Phoenix 🜂
+    (Built in Node.js — lightweight, cross-platform, and modular)
+
+FOR ONLINE HELP: phoenixmind3@gmail.com
+
+Note: This is a Node.js simulation of the Linux iwconfig command.
+For actual wireless configuration, use native OS tools for non-linux OS.
