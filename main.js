@@ -11,6 +11,7 @@ const clearCommand = require("./commands/clearCommand");
 const lsCommand = require("./commands/lsCommand");
 const cdCommand = require("./commands/cdCommand");
 const exitCommand = require("./commands/exitCommand");
+const mvCommand = require("./commands/mvCommand");
 // const echoCommand = require("./commands/echoCommand");
 const pwdCommand = require("./commands/pwdCommand");
 const rmCommand = require('./commands/rmCommand');
@@ -132,6 +133,11 @@ const prompt = () => {
 
         // cat command
         else if (cmd == 'cat') {
+          if (parts.includes('>')) {
+            console.log("Output redirection with '>' is not supported in this shell.");
+            executeNextCommand();
+            return;
+          }
           catCommand(arg);
           executeNextCommand();
         }

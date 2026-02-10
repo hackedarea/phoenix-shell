@@ -189,7 +189,7 @@ const mvCommand = (args) => {
     }
 
     if (options.showVersion) {
-        console.log("Phoenix Shell (mv) 1.0.0");
+        console.log("Phoenix Shell (mv) 1.0.3");
         return;
     }
 
@@ -238,3 +238,6 @@ const mvCommand = (args) => {
         }
     }
 };
+
+
+module.exports = mvCommand;
