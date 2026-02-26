@@ -1,1 +1,1 @@
-bae run figlet Hello
+bae run figlet 'Welcome to Phoenix Shell'
