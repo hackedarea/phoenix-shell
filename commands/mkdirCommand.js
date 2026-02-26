@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+/**
+ * Creates directories
+ * Supports creating parent directories, setting permissions, and multiple directory creation
+ */
+
 function expandTilde(p) {
   if (!p || typeof p !== 'string') return p;
   if (p === '~') return os.homedir();

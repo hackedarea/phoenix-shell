@@ -2,6 +2,11 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
+/**
+ * Copies files and/or directories
+ * Supports recursive copying, preserving file attributes, and no-clobber options
+ */
+
 function expandHome(p) {
     if (!p) return p;
     if (p === "~") return os.homedir();

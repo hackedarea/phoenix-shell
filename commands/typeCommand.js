@@ -1,6 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
+/**
+ * Displays information about command type
+ * Shows whether a command is a builtin, file path, or alias
+ */
+
 function typeCommand(args) {
   const names = Array.isArray(args) ? args : [args].filter(Boolean);
   if (names.length === 0) {

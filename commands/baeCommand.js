@@ -3,6 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
+/**
+ * Manages and installs packages using the system package manager
+ * Acts as a wrapper around apt, dnf, yum, pacman, or other package managers
+ */
+
 // Only keep necessary parts
 
 function which(cmd) {

@@ -1,6 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
+/**
+ * Concatenates and displays file contents
+ * Supports options like numbering lines, showing special characters, and squeezing blank lines
+ */
+
 function catCommand(args) {
   if (args.includes("--help")) {
     try {

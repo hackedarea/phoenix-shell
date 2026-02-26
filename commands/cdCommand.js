@@ -1,6 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
+/**
+ * Changes the current working directory
+ * Supports navigating with absolute paths, relative paths, home directory (~), and previous directory (-)
+ */
+
 function expandHome(p) {
   if (!p) return p;
   if (p === "~") return process.env.HOME || process.env.USERPROFILE || p;

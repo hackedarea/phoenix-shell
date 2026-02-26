@@ -1,6 +1,11 @@
 const path = require("path");
 const fs = require("fs");
 
+/**
+ * Displays manual pages and help information for commands
+ * Retrieves documentation from the help directory for all available commands
+ */
+
 function readTextFileSafe(filePath) {
   try {
     return fs.readFileSync(filePath, "utf8");

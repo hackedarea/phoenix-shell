@@ -2,6 +2,11 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
+/**
+ * Searches for lines matching a pattern in files
+ * Supports case-insensitive search, inverted matching, line numbers, and file names
+ */
+
 function grepCommand(args) {
   if (args.includes("--help")) {
     try {

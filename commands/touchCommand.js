@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+/**
+ * Creates empty files or updates file access/modification times
+ * Creates files if they don't exist, or updates timestamps on existing files
+ */
+
 function expandTilde(p) {
   if (!p || typeof p !== 'string') return p;
   if (p === '~') return os.homedir();

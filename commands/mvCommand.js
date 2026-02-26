@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+/**
+ * Moves or renames files and directories
+ * Supports interactive mode, force mode, no-clobber, and update options
+ */
+
 function expandHome(p) {
     if (!p) return p;
     if (p === "~") return os.homedir();

@@ -2,6 +2,11 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
+/**
+ * Lists directory contents with color-coded file types
+ * Supports long format, hidden files, human-readable sizes, and recursive listing
+ */
+
 function expandHome(p) {
   if (!p) return p;
   if (p === "~") return process.env.HOME || process.env.USERPROFILE || p;

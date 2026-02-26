@@ -3,6 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const { clear } = require("console");
 
+/**
+ * Displays network interface configuration information
+ * Shows IP addresses, MAC addresses, and network statistics for all interfaces
+ */
+
 function ifconfigCommand(args) {
   if (args.includes("--help")) {
     try {

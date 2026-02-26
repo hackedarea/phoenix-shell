@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+/**
+ * Removes files and directories
+ * Supports recursive deletion, force mode, interactive prompts, and preserve-root protection
+ */
+
 function rmCommand(args) {
   const tokens = Array.isArray(args) ? args.slice() : String(args || '').trim().split(/\s+/);
 

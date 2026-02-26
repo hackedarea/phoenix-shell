@@ -1,6 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
+/**
+ * Prints the current working directory path
+ * Supports logical and physical path display with -L and -P options
+ */
+
 function pwdCommand(args) {
   const arr = Array.isArray(args) ? args : String(args || "").split(/\s+/).slice(1);
 

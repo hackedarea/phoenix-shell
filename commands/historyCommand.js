@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+/**
+ * Displays the command history
+ * Shows a numbered list of previously executed commands with optional filtering and manipulation
+ */
+
 // History file stored in the phoenix-shell directory
 const HISTORY_FILE = path.join(__dirname, '..', '.phoenix_history');
 

@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+/**
+ * Changes file mode bits (permissions)
+ * Supports octal mode notation and symbolic mode changes (user, group, other permissions)
+ */
+
 function expandTilde(p) {
   if (!p || typeof p !== 'string') return p;
   if (p === '~') return os.homedir();

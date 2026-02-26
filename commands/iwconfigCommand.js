@@ -3,6 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require('child_process');
 
+/**
+ * Displays wireless interface configuration information
+ * Shows SSID, frequency, link quality, signal strength, and encryption details
+ */
+
 // Simulated wireless interface database
 const wirelessInterfaceDB = {
     wlan0: {
