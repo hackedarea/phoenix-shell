@@ -11,6 +11,8 @@ _A minimal yet mighty shell that blends UNIX wisdom with JavaScript flexibility.
 **Phoenix Shell** is a lightweight, interactive command-line shell built entirely in **Node.js**.  
 It mimics the behavior of common UNIX shells like **bash** or **zsh**, while revealing how real shells parse, interpret, and execute commands internally.
 
+Building this for **easy functionality** for all terminal users (**windows terminals** cmd, powershell or any **linux terminals**)
+
 ---
 
 ## 🚀 Features Implemented
@@ -22,6 +24,7 @@ It mimics the behavior of common UNIX shells like **bash** or **zsh**, while rev
 - Built-in environment variable usage (`$PATH`, `$HOME`, etc.)
 - Introduced shell variables (`x=5`, `$x`)
 - Commands to display network & machine interfaces (`ifconfig`,`iwconfig`)
+- Functionality like .bashrc or .zshrc (only run any command initially, without any user input `figlet 'Phoenix Shell'`)
 
 ---
 
@@ -69,7 +72,7 @@ Phoenix Shell comes with an intelligent path resolver that:
 - Resolves absolute paths (`/usr/bin`, `/help/file.txt`)
 - Normalizes redundant segments
 - Integrates a custom alias: `bae` (default package manager shortcut)
-
+- Integrated a custom .pshrc file (work like an .bashrc or .zshrc)
 ---
 
 ### 🧩 Command Parser
@@ -90,7 +93,6 @@ Phoenix Shell is built as a deep-dive project to:
 ---
 
 ## 🧪 Upcoming Features
-
 - [ ] Add more built-in commands like `chdir`, `alias`, etc.
 - [ ] Implement piped commands (`cat file | grep text`)
 - [ ] Some more advanced commands (`cat>file_name`)
@@ -112,7 +114,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/coderujwal3"><img src="https://avatars.githubusercontent.com/u/67452930?v=4?s=60" width="60px;" alt="coderujwal3"/><br /><sub><b>Ujwal Singh</b></sub></a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/coderujwal3"><img src="https://avatars.githubusercontent.com/u/e?email=nikhilsengar7012@gmail.com&s=60" width="60px;" alt="coderujwal3"/><br /><sub><b>Ujwal Singh</b></sub></a></td>
     </tr>
   </tbody>
 </table>

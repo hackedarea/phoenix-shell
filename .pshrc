@@ -1,1 +1,2 @@
-bae run figlet 'Welcome to Phoenix Shell'
+# bae run figlet 'Welcome to Phoenix Shell'
+ipconfig

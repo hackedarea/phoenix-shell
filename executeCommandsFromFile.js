@@ -23,7 +23,6 @@ async function executeCommandsFromFile(filePath, executor) {
         await executor(trimmedCommand);
       }
     }
-
   } catch (err) {
     console.error('An error occurred:', err.message || err);
   }

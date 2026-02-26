@@ -125,7 +125,7 @@ const executeSingleCommand = (currentCommand) => {
   }
 
   // ifconfig command
-  else if (cmd == 'ifconfig') {
+  else if (cmd == 'ifconfig' || cmd == 'ipconfig') {
     ifconfigCommand(arg);
   }
 
