@@ -16,7 +16,7 @@ async function executeCommandsFromFile(filePath, executor) {
       const trimmedCommand = command.trim();
       if (trimmedCommand === '') continue;
 
-      console.log(`\n--> Executing: ${trimmedCommand}`);
+      // console.log(`\nExecuting: ${trimmedCommand}`);
       
       // If executor function provided, use it; otherwise skip (for backward compatibility)
       if (executor && typeof executor === 'function') {
