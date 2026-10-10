@@ -32,6 +32,14 @@ function parseArgs(args) {
   return { flags, positional };
 }
 
+function stripAnsi(str = "") {
+  return str.replace(/\u001b\[[0-9;]*m/g, "");
+}
+
+function getDisplayWidth(str = "") {
+  return stripAnsi(str).length;
+}
+
 function formatFileName(name, isDirectory) {
   if (isDirectory) {
     return chalk.blueBright(name + "/");
@@ -43,7 +51,7 @@ function formatFileName(name, isDirectory) {
   }
 
   const ext = path.extname(name).toLowerCase();
-  
+
   // Zipped/archive files
   const archiveExts = ['.deb', '.zip', '.tar', '.gz', '.bz2', '.xz', '.rar', '.7z', '.tar.gz', '.tar.bz2', '.tar.xz'];
   if (archiveExts.some(archiveExt => name.toLowerCase().endsWith(archiveExt))) {
@@ -123,11 +131,30 @@ function lsCommand(args) {
         console.log(`${type}${perms} 1 user group ${size} ${mtime}  ${name}`);
       });
     } else {
-      console.log(
-        visibleEntries
-          .map((e) => formatFileName(e.name, e.isDirectory()))
-          .join("  ")
-      );
+      const entries = visibleEntries.map((e) => formatFileName(e.name, e.isDirectory()));
+      if (entries.length === 0) {
+        return;
+      }
+
+      const maxLen = entries.reduce((max, name) => Math.max(max, getDisplayWidth(name)), 0);
+      const spacing = 2;
+      const terminalWidth = process.stdout.columns || 80;
+      let cols = Math.max(1, Math.floor((terminalWidth + spacing) / (maxLen + spacing)));
+      cols = Math.min(cols, entries.length);
+      const rows = Math.ceil(entries.length / cols);
+
+      for (let row = 0; row < rows; row++) {
+        const line = [];
+        for (let col = 0; col < cols; col++) {
+          const index = row + col * rows;
+          const entry = entries[index];
+          if (!entry) break;
+
+          const entryWidth = getDisplayWidth(entry);
+          line.push(entry + " ".repeat(Math.max(0, maxLen - entryWidth + spacing)));
+        }
+        console.log(line.join(""));
+      }
     }
   } catch {
     const errorTarget = originalTarget || targetDir;
@@ -136,5 +163,3 @@ function lsCommand(args) {
 }
 
 module.exports = lsCommand;
-
-

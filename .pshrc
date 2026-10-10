@@ -1,2 +1,3 @@
 # bae run figlet 'Welcome to Phoenix Shell'
-ipconfig
+bae run fastfetch
+bae run cowthink -f dragon "Welcome!!!" || lolcat
